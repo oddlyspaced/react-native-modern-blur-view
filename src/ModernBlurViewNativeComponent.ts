@@ -13,4 +13,4 @@ interface NativeProps extends ViewProps {
   autoUpdate?: boolean;
 }
 
-export default codegenNativeComponent<NativeProps>('ModernBlurViewView');
+export default codegenNativeComponent<NativeProps>('ModernBlurView');

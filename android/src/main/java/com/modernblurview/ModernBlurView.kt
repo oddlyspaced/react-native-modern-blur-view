@@ -10,7 +10,7 @@ import android.util.Log
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
 
-class ModernBlurViewView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : FrameLayout(context, attrs, defStyleAttr) {
+class ModernBlurView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : FrameLayout(context, attrs, defStyleAttr) {
 
       lateinit var blurController: BlurController
         private set
