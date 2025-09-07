@@ -37,5 +37,50 @@ class ModernBlurViewView(context: Context, attrs: AttributeSet? = null, defStyle
         blurController.setBlurAutoUpdate(false)
     }
 
+     override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        if (!isHardwareAccelerated) {
+            // Log.e(TAG, "BlurView can't be used in not hardware-accelerated window!")
+        } else {
+            blurController.setBlurAutoUpdate(true)
+        }
+    }
+
+      /**
+     * @param rootView root to start blur from.
+     * Can be Activity's root content layout (android.R.id.content)
+     * or (preferably) some of your layouts. The lower amount of Views are in the root, the better for performance.
+     * @return [BlurController] to setup needed params.
+     */
+    fun setupWith(rootView: ViewGroup): BlurController {
+        if (::blurController.isInitialized) {
+            blurController.destroy()
+        }
+        val controller = PreDrawBlurController(this, rootView)
+        blurController = controller
+        return controller
+    }
+
+    fun setBlurRadius(radius: Float) {
+        blurController.setBlurRadius(radius)
+    }
+
+    fun setTintColor(@ColorInt tintColor: Int) {
+        this.tintColor = tintColor
+        blurController.setTintColor(tintColor)
+    }
+
+    fun setTintOpacity(tintOpacity: Float) {
+        this.tintOpacity = tintOpacity
+        blurController.setTintOpacity(tintOpacity)
+    }
+
+    fun setBlurAutoUpdate(enabled: Boolean) {
+        blurController.setBlurAutoUpdate(enabled)
+    }
+
+    fun setBlurEnabled(enabled: Boolean) {
+        blurController.setBlurEnabled(enabled)
+    }
 
 }

@@ -8,8 +8,9 @@ import com.facebook.react.uimanager.ViewManagerDelegate
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.facebook.react.viewmanagers.ModernBlurViewViewManagerInterface
 import com.facebook.react.viewmanagers.ModernBlurViewViewManagerDelegate
+import android.view.View
 
-const val defaultRadius: Int = 10
+const val defaultRadius: Float = 10f
 
 @ReactModule(name = ModernBlurViewViewManager.NAME)
 class ModernBlurViewViewManager : SimpleViewManager<ModernBlurViewView>(),
@@ -29,35 +30,40 @@ class ModernBlurViewViewManager : SimpleViewManager<ModernBlurViewView>(),
   }
 
   public override fun createViewInstance(context: ThemedReactContext): ModernBlurViewView {
-    return ModernBlurViewView(context)
+    val blurView = ModernBlurViewView(context)
+     val decorView: View = requireNotNull(context.currentActivity).window.decorView
+        blurView
+            .setupWith(decorView.findViewById(android.R.id.content))
+            .setBlurRadius(defaultRadius.toFloat())
+        return blurView
   }
 
- @ReactProp(name = "blurRadius", defaultInt = defaultRadius)
-    override fun setBlurRadius(view: ModernBlurViewView, radius: Int) {
-        // view.setBlurRadius(maxOf(minOf(radius, 25f), 0f))
-        // view.invalidate()
+ @ReactProp(name = "blurRadius", defaultFloat = defaultRadius)
+    override fun setBlurRadius(view: ModernBlurViewView, radius: Float) {
+        view.setBlurRadius(maxOf(minOf(radius, 25f), 0f))
+        view.invalidate()
     }
 
     @ReactProp(name = "autoUpdate", defaultBoolean = true)
     override fun setAutoUpdate(view: ModernBlurViewView, autoUpdate: Boolean) {
-        // view.setBlurAutoUpdate(autoUpdate)
-        // view.invalidate()
+        view.setBlurAutoUpdate(autoUpdate)
+        view.invalidate()
     }
 
     @ReactProp(name = "enabled", defaultBoolean = true)
     override fun setEnabled(view: ModernBlurViewView, enabled: Boolean) {
-        // view.setBlurEnabled(enabled)
+        view.setBlurEnabled(enabled)
     }
 
     @ReactProp(name = "tintColor", customType = "Color")
     override fun setTintColor(view: ModernBlurViewView?, color: Int?) {
-        // view?.setTintColor(color ?: Color.TRANSPARENT)
-        // view?.invalidate()
+        view?.setTintColor(color ?: Color.TRANSPARENT)
+        view?.invalidate()
     }
 
     @ReactProp(name = "tintOpacity", defaultFloat = 0.5f)
     override fun setTintOpacity(view: ModernBlurViewView?, value: Float) {
-        // view?.setTintOpacity(value)
+        view?.setTintOpacity(value)
     }
 
   companion object {
