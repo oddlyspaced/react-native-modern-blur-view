@@ -9,6 +9,8 @@ import com.facebook.react.uimanager.annotations.ReactProp
 import com.facebook.react.viewmanagers.ModernBlurViewViewManagerInterface
 import com.facebook.react.viewmanagers.ModernBlurViewViewManagerDelegate
 
+const val defaultRadius: Int = 10
+
 @ReactModule(name = ModernBlurViewViewManager.NAME)
 class ModernBlurViewViewManager : SimpleViewManager<ModernBlurViewView>(),
   ModernBlurViewViewManagerInterface<ModernBlurViewView> {
@@ -30,10 +32,33 @@ class ModernBlurViewViewManager : SimpleViewManager<ModernBlurViewView>(),
     return ModernBlurViewView(context)
   }
 
-  @ReactProp(name = "color")
-  override fun setColor(view: ModernBlurViewView?, color: String?) {
-    view?.setBackgroundColor(Color.parseColor(color))
-  }
+ @ReactProp(name = "blurRadius", defaultInt = defaultRadius)
+    override fun setBlurRadius(view: ModernBlurViewView, radius: Int) {
+        // view.setBlurRadius(maxOf(minOf(radius, 25f), 0f))
+        // view.invalidate()
+    }
+
+    @ReactProp(name = "autoUpdate", defaultBoolean = true)
+    override fun setAutoUpdate(view: ModernBlurViewView, autoUpdate: Boolean) {
+        // view.setBlurAutoUpdate(autoUpdate)
+        // view.invalidate()
+    }
+
+    @ReactProp(name = "enabled", defaultBoolean = true)
+    override fun setEnabled(view: ModernBlurViewView, enabled: Boolean) {
+        // view.setBlurEnabled(enabled)
+    }
+
+    @ReactProp(name = "tintColor", customType = "Color")
+    override fun setTintColor(view: ModernBlurViewView?, color: Int?) {
+        // view?.setTintColor(color ?: Color.TRANSPARENT)
+        // view?.invalidate()
+    }
+
+    @ReactProp(name = "tintOpacity", defaultFloat = 0.5f)
+    override fun setTintOpacity(view: ModernBlurViewView?, value: Float) {
+        // view?.setTintOpacity(value)
+    }
 
   companion object {
     const val NAME = "ModernBlurViewView"
