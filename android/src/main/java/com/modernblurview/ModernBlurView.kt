@@ -14,6 +14,10 @@ class ModernBlurView(context: Context, attrs: AttributeSet? = null, defStyleAttr
 
       lateinit var blurController: BlurController
         private set
+    
+    companion object {
+        private const val TAG: String = "ModernBlurView"
+    }
 
     @ColorInt
     private var tintColor: Int = PreDrawBlurController.TRANSPARENT
@@ -40,7 +44,7 @@ class ModernBlurView(context: Context, attrs: AttributeSet? = null, defStyleAttr
      override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (!isHardwareAccelerated) {
-            // Log.e(TAG, "BlurView can't be used in not hardware-accelerated window!")
+            Log.e(TAG, "BlurView can't be used in not hardware-accelerated window!")
         } else {
             blurController.setBlurAutoUpdate(true)
         }
