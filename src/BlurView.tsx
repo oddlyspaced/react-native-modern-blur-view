@@ -6,6 +6,7 @@ export type IModernBlurViewProps = ViewProps & {
   tintColor?: string;
   tintOpacity?: number;
   enabled?: boolean;
+  autoUpdate?: boolean;
 };
 
 const NativeComponent =
@@ -20,6 +21,7 @@ const BlurView = (props: IModernBlurViewProps) => {
     tintColor,
     tintOpacity = 0,
     style,
+    autoUpdate = true,
     children,
     ...rest
   } = props;
@@ -31,6 +33,7 @@ const BlurView = (props: IModernBlurViewProps) => {
         enabled={enabled && blurRadius > 0}
         pointerEvents="none"
         tintColor={tintColor}
+        autoUpdate={autoUpdate}
         tintOpacity={tintOpacity}
         style={{
           backgroundColor: 'transparent',
