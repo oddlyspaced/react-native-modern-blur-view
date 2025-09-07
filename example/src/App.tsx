@@ -10,7 +10,7 @@ export default function App() {
       <BlurView
         tintOpacity={0.5}
         enabled
-        blurRadius={20}
+        blurRadius={4}
         tintColor="#32a852"
         style={styles.box}
       />

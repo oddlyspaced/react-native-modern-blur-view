@@ -149,7 +149,7 @@
     ]
   },
   "codegenConfig": {
-    "name": "ModernBlurViewViewSpec",
+    "name": "ModernBlurViewSpec",
     "type": "all",
     "jsSrcsDir": "src",
     "android": {
@@ -157,7 +157,7 @@
     },
     "ios": {
       "componentProvider": {
-        "ModernBlurViewView": "ModernBlurViewView"
+        "ModernBlurView": "ModernBlurView"
       }
     }
   },

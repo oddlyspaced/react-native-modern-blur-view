@@ -1,11 +1,11 @@
-// ModernBlurViewView.mm
+// ModernBlurView.mm
 
-#import "ModernBlurViewView.h"
+#import "ModernBlurView.h"
 
-#import <react/renderer/components/ModernBlurViewViewSpec/ComponentDescriptors.h>
-#import <react/renderer/components/ModernBlurViewViewSpec/EventEmitters.h>
-#import <react/renderer/components/ModernBlurViewViewSpec/Props.h>
-#import <react/renderer/components/ModernBlurViewViewSpec/RCTComponentViewHelpers.h>
+#import <react/renderer/components/ModernBlurViewSpec/ComponentDescriptors.h>
+#import <react/renderer/components/ModernBlurViewSpec/EventEmitters.h>
+#import <react/renderer/components/ModernBlurViewSpec/Props.h>
+#import <react/renderer/components/ModernBlurViewSpec/RCTComponentViewHelpers.h>
 
 #import <react/renderer/graphics/Color.h>
 // RN provides this symbol at link time; forward declare to avoid brittle headers
@@ -103,13 +103,13 @@ static inline void RNSetSetting(id settings, NSString *key, id value) {
 @end
 
 //==============================
-// MARK: - ModernBlurViewView (Fabric)
+// MARK: - ModernBlurView (Fabric)
 //==============================
 
-@interface ModernBlurViewView () <RCTModernBlurViewViewViewProtocol>
+@interface ModernBlurView () <RCTModernBlurViewViewProtocol>
 @end
 
-@implementation ModernBlurViewView {
+@implementation ModernBlurView {
   UIView *_container;              // contentView host from base file
   UIVisualEffectView *_blurView;   // actual blur view
   UIView *_tintOverlay;            // tint overlay above blur
@@ -124,14 +124,14 @@ static inline void RNSetSetting(id settings, NSString *key, id value) {
 
 + (ComponentDescriptorProvider)componentDescriptorProvider
 {
-  return concreteComponentDescriptorProvider<ModernBlurViewViewComponentDescriptor>();
+  return concreteComponentDescriptorProvider<ModernBlurViewComponentDescriptor>();
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
   if (self = [super initWithFrame:frame]) {
     static const auto defaultProps =
-        std::make_shared<const ModernBlurViewViewProps>();
+        std::make_shared<const ModernBlurViewProps>();
     _props = defaultProps;
 
     // Base class container (preserves create-react-native-library layout pattern)
@@ -200,7 +200,7 @@ static inline void RNSetSetting(id settings, NSString *key, id value) {
           oldProps:(Props::Shared const &)oldProps
 {
   const auto &newProps =
-      *std::static_pointer_cast<const ModernBlurViewViewProps>(props);
+      *std::static_pointer_cast<const ModernBlurViewProps>(props);
 
   // Assign from codegen props (keep names from your *.js/TS spec)
   _propBlurRadius = (CGFloat)newProps.blurRadius;
@@ -246,14 +246,14 @@ static inline void RNSetSetting(id settings, NSString *key, id value) {
 
 #pragma mark - Event emitter / descriptor
 
-- (const ModernBlurViewViewEventEmitter &)eventEmitter
+- (const ModernBlurViewEventEmitter &)eventEmitter
 {
-  return static_cast<const ModernBlurViewViewEventEmitter &>(*_eventEmitter);
+  return static_cast<const ModernBlurViewEventEmitter &>(*_eventEmitter);
 }
 
-Class<RCTComponentViewProtocol> ModernBlurViewViewCls(void)
+Class<RCTComponentViewProtocol> ModernBlurViewCls(void)
 {
-  return ModernBlurViewView.class;
+  return ModernBlurView.class;
 }
 
 @end
