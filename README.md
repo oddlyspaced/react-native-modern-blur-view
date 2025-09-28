@@ -1,6 +1,6 @@
 # react-native-modern-blur-view
 
-A lightweight, Fabric-ready BlurView for React Native that blurs whatever is behind it — with precise control over **blur radius**, **tint color**, and **tint opacity**. Works on iOS & Android (Fabric/New Architecture).
+A lightweight, Fabric/New Architecture BlurView for React Native that blurs whatever is behind it — with precise control over **blur radius**, **tint color**, and **tint opacity**. Works on iOS & Android (Fabric/New Architecture).
 
 > ✨ Includes a demo app with a draggable blur square and adjustable controls.
 
@@ -11,7 +11,7 @@ A lightweight, Fabric-ready BlurView for React Native that blurs whatever is beh
 * 🧊 True background blur, not a screenshot hack
 * 🎛️ Props for `blurRadius`, `tintColor`, `tintOpacity`, `enabled`
 * 🧱 Drop-in `<View/>` replacement (accepts all `ViewProps`)
-* ⚙️ Compatible with New Architecture
+* ⚙️ !! ONLY !! Compatible with New Architecture
 
 ---
 
