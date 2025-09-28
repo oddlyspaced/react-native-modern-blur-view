@@ -97,6 +97,12 @@ The component extends `ViewProps`.
 
 ## Demo App (Draggable BlurView)
 
+### Demo Videos
+
+| iOS | Android |
+|-----|---------|
+| ![iOS Demo](https://github.com/oddlyspaced/react-native-modern-blur-view/raw/refs/heads/main/assets/demo-ios.mp4) | ![Android Demo](https://github.com/oddlyspaced/react-native-modern-blur-view/raw/refs/heads/main/assets/demo-android.mp4) |
+
 This repo ships with an example showcasing:
 
 * Scrollable content (images + text)
