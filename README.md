@@ -99,9 +99,13 @@ The component extends `ViewProps`.
 
 ### Demo Videos
 
-| iOS | Android |
-|-----|---------|
-| ![iOS Demo](https://github.com/oddlyspaced/react-native-modern-blur-view/raw/refs/heads/main/assets/demo-ios.mp4) | ![Android Demo](https://github.com/oddlyspaced/react-native-modern-blur-view/raw/refs/heads/main/assets/demo-android.mp4) |
+
+> Android
+https://github.com/user-attachments/assets/4d49d68e-dd6c-4975-b0a6-6da96566a677
+
+> iOS
+https://github.com/user-attachments/assets/8b656e06-8374-4672-bc10-18d86b0a1629
+
 
 This repo ships with an example showcasing:
 
