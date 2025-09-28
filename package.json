@@ -1,6 +1,6 @@
 {
   "name": "react-native-modern-blur-view",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "description": "A modern lightweight, Fabric-ready BlurView for React Native with customizable blur radius, tint color, and opacity on iOS and Android.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",

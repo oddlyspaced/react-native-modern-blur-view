@@ -8,7 +8,7 @@ PODS:
   - hermes-engine (0.77.0):
     - hermes-engine/Pre-built (= 0.77.0)
   - hermes-engine/Pre-built (0.77.0)
-  - ModernBlurView (0.1.0):
+  - ModernBlurView (0.9.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1743,7 +1743,7 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: eb93e2f488219332457c3c4eafd2738ddc7e80b8
   hermes-engine: 1f783c3d53940aed0d2c84586f0b7a85ab7827ef
-  ModernBlurView: f54778e04a2d39a322677b2ef90ee168edbaf3d2
+  ModernBlurView: 716a59e6f2629a66b1b1d62e1454eeabe186ce82
   RCT-Folly: e78785aa9ba2ed998ea4151e314036f6c49e6d82
   RCTDeprecation: f5c19ebdb8804b53ed029123eb69914356192fc8
   RCTRequired: 6ae6cebe470486e0e0ce89c1c0eabb998e7c51f4
