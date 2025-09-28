@@ -101,9 +101,11 @@ The component extends `ViewProps`.
 
 
 > Android
+
 https://github.com/user-attachments/assets/4d49d68e-dd6c-4975-b0a6-6da96566a677
 
 > iOS
+
 https://github.com/user-attachments/assets/8b656e06-8374-4672-bc10-18d86b0a1629
 
 
