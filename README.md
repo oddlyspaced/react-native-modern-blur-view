@@ -11,7 +11,7 @@ A lightweight, Fabric-ready BlurView for React Native that blurs whatever is beh
 * 🧊 True background blur, not a screenshot hack
 * 🎛️ Props for `blurRadius`, `tintColor`, `tintOpacity`, `enabled`
 * 🧱 Drop-in `<View/>` replacement (accepts all `ViewProps`)
-* ⚙️ Fabric-first implementation (RN 0.76+ / 0.77+)
+* ⚙️ Compatible with New Architecture
 
 ---
 
@@ -25,21 +25,20 @@ npm i react-native-modern-blur-view
 yarn add react-native-modern-blur-view
 ```
 
-### iOS
+### iOS (New Architecture)
 
 ```bash
 cd ios
-pod install
+RCT_NEW_ARCH_ENABLED=1 pod install
 cd ..
 ```
 
 * Xcode ≥ 15 recommended.
-* New Architecture/Fabric should be enabled (RN 0.76+ / 0.77+).
 
 ### Android
 
 * No manual steps required.
-* Tested on Android 12+. (Older versions may work, but are not officially tested.)
+* Tested on Android 12+. (Older versions may work, but are not tested.)
 
 ---
 
@@ -57,7 +56,7 @@ export default function Example() {
       <BlurView
         enabled
         blurRadius={16}        // 0..25 on Android, > 25 on iOS
-        tintColor="#32a852"    // any CSS color
+        tintColor="#2323FF"    // any CSS color
         tintOpacity={0.35}     // 0..1
         style={styles.blurBox}
       />
@@ -109,6 +108,7 @@ This repo ships with an example showcasing:
 ```bash
 # in the repo root
 yarn
+yarn prepare
 cd example
 yarn
 
@@ -126,9 +126,6 @@ yarn android
 * **Visual parity with design tools:**
   The `blurRadius` passes the raw value to underlying views. On Android 25 is the max value, on iOS it goes way beyond.
 
-* **Rounding corners:**
-  Set `borderRadius` in `style` to soften edges and reduce halo artifacts.
-
 * **Performance:**
   Keep the blur area reasonably sized. On older devices, very large blurs can be expensive.
 
@@ -141,7 +138,7 @@ import { ViewProps } from 'react-native';
 
 export type BlurViewProps = ViewProps & {
   blurRadius?: number;   // float
-  tintColor?: string;    // '#32a852', etc.
+  tintColor?: string;    // '#2323FF', etc.
   tintOpacity?: number;  // 0..1
   enabled?: boolean;     // default: true
 };
