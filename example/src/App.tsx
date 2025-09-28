@@ -1,5 +1,5 @@
 // App.tsx
-import React, { useMemo, useRef, useState, useCallback } from 'react';
+import { useMemo, useRef, useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -12,10 +12,37 @@ import {
   Animated,
   TouchableOpacity,
   type LayoutChangeEvent,
+  StatusBar,
 } from 'react-native';
 import { BlurView } from 'react-native-modern-blur-view';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+const ControlRow = ({
+  label,
+  value,
+  onInc,
+  onDec,
+}: {
+  label: string;
+  value: string;
+  onInc: () => void;
+  onDec: () => void;
+}) => (
+  <View style={styles.controlRow}>
+    <Text style={styles.controlLabel}>
+      {label}: {value}
+    </Text>
+    <View style={styles.buttonRow}>
+      <TouchableOpacity style={styles.btn} onPress={onDec}>
+        <Text style={styles.btnText}>-</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btn} onPress={onInc}>
+        <Text style={styles.btnText}>+</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+);
 
 export default function App() {
   const [size, setSize] = useState(160);
@@ -69,34 +96,9 @@ export default function App() {
     [size]
   );
 
-  const ControlRow = ({
-    label,
-    value,
-    onInc,
-    onDec,
-  }: {
-    label: string;
-    value: string;
-    onInc: () => void;
-    onDec: () => void;
-  }) => (
-    <View style={styles.controlRow}>
-      <Text style={styles.controlLabel}>
-        {label}: {value}
-      </Text>
-      <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.btn} onPress={onDec}>
-          <Text style={styles.btnText}>-</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={onInc}>
-          <Text style={styles.btnText}>+</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-
   return (
     <SafeAreaView style={styles.safe}>
+      <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
       <View style={styles.container}>
         <View style={styles.contentArea} onLayout={onContentLayout}>
           <ScrollView
@@ -105,8 +107,8 @@ export default function App() {
           >
             <Text style={styles.h1}>BlurView Demo (Draggable + Buttons)</Text>
             <Text style={styles.p}>
-              Drag the green blurred square around. Adjust its size, opacity,
-              and blur radius using the + / – buttons below.
+              Drag the blue blurred square around. Adjust its size, opacity, and
+              blur radius using the + / – buttons below.
             </Text>
 
             {Array.from({ length: 3 }).map((_, row) => (
@@ -152,7 +154,7 @@ export default function App() {
               enabled
               blurRadius={radius}
               tintOpacity={opacity}
-              tintColor="#32a852"
+              tintColor="#2323FF"
               style={StyleSheet.absoluteFill}
             />
             <Text style={styles.floatingLabel}>
@@ -248,7 +250,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#32a852',
+    backgroundColor: '#2323FF',
     justifyContent: 'center',
     alignItems: 'center',
   },
