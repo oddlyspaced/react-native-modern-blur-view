@@ -156,3 +156,12 @@ PRs welcome! Please:
 2. Keep changes minimal and well-scoped
 3. Add/adjust example if you change behavior
 4. Run example on both iOS & Android before opening your PR
+
+## Credits
+
+- Hardik Srivastava (@oddlyspaced)
+
+
+## References
+- https://github.com/Kureev/react-native-blur
+- https://github.com/efremidze/VisualEffectView
